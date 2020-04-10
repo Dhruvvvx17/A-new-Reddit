@@ -4,6 +4,7 @@ import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 import PostDescription from './PostDescription'
 
+// Every post is assembled here. Called using the map function repetedly for every post that is to be displayed.
 class Post extends Component {
     state = {  }
 

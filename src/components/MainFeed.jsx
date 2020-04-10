@@ -2,11 +2,15 @@ import React, { Component } from 'react';
 import NavBar from './NavBar';
 import Posts from './Posts'
 
+// MainFeed module contains <NavBar> and <Posts>. Each post in posts is loaded further from the <Post> module.
 class MainFeed extends Component {
     
     // Fetch entire Feed from API here
     state = { 
         allPosts: [
+
+            // allPosts refers to an array which should be the response from the API returning all posts in the format below.
+            // Format - id, title, description, image, votes.
             // Post 1
             {id: 1,title:"Space",description:"A galaxy is a gravitationally bound system of stars, stellar remnants, interstellar gas, dust, and dark matter. The word galaxy is derived from the Greek galaxias, literally 'milky', a reference to the Milky Way.",
              image: "../images/test_image1.jpg", votes: 15},
