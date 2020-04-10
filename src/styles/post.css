@@ -1,0 +1,20 @@
+.container_style {
+    border: 1px solid black;
+    width: 400;
+    height: auto;
+    margin: 5;
+    min-height: 400;
+}
+
+.title_votes_style {
+    padding-inline: 10;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.vote_btn_style {
+    margin-inline: 10;
+    margin-top: 5;
+    margin-bottom: 5;
+}
