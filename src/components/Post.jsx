@@ -3,7 +3,7 @@ import { IconButton } from '@material-ui/core'
 import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 import PostDescription from './PostDescription'
-
+import '../styles/post.css'
 // Every post is assembled here. Called using the map function repetedly for every post that is to be displayed.
 class Post extends Component {
     state = {  }
@@ -42,7 +42,7 @@ class Post extends Component {
                     
                     {/* Post image */}
                     <div style={{display:"flex",justifyContent:"center"}}>
-                        <img src = {image} alt="fcb" style={{width:"80%",height:"80%"}}/>
+                        <img src = {image} alt="post image here" style={{width:"80%",height:"80%"}}/>
                     </div>
 
                     {/* Post upvote and downvote button */}

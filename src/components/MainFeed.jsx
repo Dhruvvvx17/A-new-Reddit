@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import NavBar from './NavBar';
 import Posts from './Posts'
 
-// MainFeed module contains <NavBar> and <Posts>. Each post in posts is loaded further from the <Post> module.
+// MainFeed module contains <Posts>. Each post in posts is loaded further from the <Post> module.
 class MainFeed extends Component {
     
     // Fetch entire Feed from API here
@@ -24,16 +23,11 @@ class MainFeed extends Component {
     render() { 
         return ( 
             <React.Fragment>
-				<NavBar/>
 				<main style={{display:"flex",alignItems:"center", flexDirection:"column", padding:5}}>
                     <Posts 
                         allPosts = {this.state.allPosts}
                         onUpvote = {this.handleUpvote}
                         onDownvote = {this.handleDownvote}
-                    // title = {this.state.title}
-                    // description = {this.state.description}
-                    // image = {this.state.image}
-                    // votes = {this.state.votes}
                     />
 				</main>
 			</React.Fragment>

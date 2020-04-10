@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom';
+import '../styles/navLinks.css'
 
 class NavBar extends Component {
     state = { 
@@ -11,27 +13,27 @@ class NavBar extends Component {
             <nav className="navbar navbar-dark bg-dark" style={{color: "#FFFFFF"}}>
 
                 {/* Title */}
-                <a className="navbar-brand text-warning" href="https://www.google.com">A New Reddit</a>
+                <NavLink to="/" className="navbar-brand text-warning">A New Reddit</NavLink>
 
                 <ul className="nav justify-content-end">
                     {/* First hyperlink */}
                     <li className="nav-item">
-                        <a className="nav-link text-warning" href="https://www.google.com">Home</a>
+                        <NavLink to="/" className="nav-link text-warning" activeClassName="nav-link text-danger" exact>Home</NavLink>
                     </li>
 
                     {/* Second Hyperlink */}
                     <li className="nav-item">
-                        <a className="nav-link text-warning" href="https://www.google.com">Trending</a>
+                        <NavLink to='/Trending' className="nav-link text-warning" activeClassName="nav-link text-danger" exact>Trending</NavLink>
                     </li>
 
                     {/* Third Hyperlink */}
                     <li className="nav-item">
-                        <a className="nav-link text-warning" href="https://www.google.com">Create Post</a>
+                        <NavLink to='/CreatePost' className="nav-link text-warning" activeClassName="nav-link text-danger" exact>Create Post</NavLink>
                     </li>
 
                     {/* Fourth Hyperlink */}
                     <li className="nav-item">
-                        <a className="nav-link text-warning" href="https://www.google.com">Profile</a>
+                        <NavLink to='/Profile' className="nav-link text-warning" activeClassName="nav-link text-danger" exact>Profile</NavLink>
                     </li>
 
                     {/* Search bar and submit button as a form */}
@@ -58,7 +60,8 @@ class NavBar extends Component {
     searchQuery(){
         const sendQuery = this.state.query;
         console.log("Query to search is: ",sendQuery);
-        // Hit API with search result
+        // Send to API with search result
+        // Logic for what to do with the search result comes here.
     }
 
 }
