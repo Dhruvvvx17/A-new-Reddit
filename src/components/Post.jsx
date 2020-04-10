@@ -7,6 +7,7 @@ import PostDescription from './PostDescription'
 class Post extends Component {
     state = {  }
 
+    
     // Styling elements
     container_style = {border: "1px solid black",width:400,height:"auto",margin:5,minHeight:400};
     title_votes_style = {paddingInline: 10,display:"flex",flexDirection:"row",justifyContent:"space-between"}
