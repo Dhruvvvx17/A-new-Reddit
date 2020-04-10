@@ -58,10 +58,12 @@ class NavBar extends Component {
 
 
     searchQuery(){
-        const sendQuery = this.state.query;
-        console.log("Query to search is: ",sendQuery);
-        // Send to API with search result
-        // Logic for what to do with the search result comes here.
+        if (this.state.query !== ''){
+            const sendQuery = this.state.query;
+            console.log("Query to search is: ",sendQuery);
+            // Send to API with search result
+            // Logic for what to do with the search result comes here.    
+        }
     }
 
 }

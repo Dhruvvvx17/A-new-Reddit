@@ -42,7 +42,7 @@ class Post extends Component {
                     
                     {/* Post image */}
                     <div style={{display:"flex",justifyContent:"center"}}>
-                        <img src = {image} alt="post image here" style={{width:"80%",height:"80%"}}/>
+                        <img src = {image} alt="space" style={{width:"80%",height:"80%"}}/>
                     </div>
 
                     {/* Post upvote and downvote button */}
