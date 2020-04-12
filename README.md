@@ -1,3 +1,7 @@
+# MicroBlogging (A-new-Reddit)
+
+## Frontend using React, Material UI and Bootstrap.
+
 Create a project using command:
 
     - npx create-react-app <app name>
