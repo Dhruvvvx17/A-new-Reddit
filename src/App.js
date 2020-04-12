@@ -11,12 +11,17 @@ import {BrowserRouter, Switch,Route} from 'react-router-dom';
 
 //App First react module. Contains the NavBar and MainFeed module in it which further contains the navbar and posts.
 class App extends Component {
-	state = {  }
+
+	state = {
+		username:"Dhruv"
+	}
+	
 	render() { 
 		return (
 			<React.Fragment>
 				<BrowserRouter>
-					<NavBar/>
+					<NavBar
+						username={this.state.username}/>
 					<Switch>
 						<Route path="/" exact component={MainFeed}/>
 						<Route path="/Trending/" exact component={Trending}/>
