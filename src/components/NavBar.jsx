@@ -5,7 +5,6 @@ import '../styles/navLinks.css'
 class NavBar extends Component {
     state = { 
         query : "",
-        log_bool: "Login",       //to check if user has logged in or not
         isLoggedIn: false
     };
 
@@ -36,7 +35,7 @@ class NavBar extends Component {
                         </form>
                     </li> */}
 
-                    <li className="my-2 my-sm-0 mx-sm-2">
+                    {/* <li className="my-2 my-sm-0 mx-sm-2">
                         { this.state.isLoggedIn ? 
                         <div>
                             <div style={{marginTop:8}}>Logged In as: {username}</div>
@@ -51,7 +50,7 @@ class NavBar extends Component {
                         :
                         null
                         }
-                    </div>
+                    </div> */}
 
                     {/* First hyperlink */}
                     <li className="nav-item">
@@ -107,7 +106,7 @@ class NavBar extends Component {
         else{
             this.setState({isLoggedIn: false});
         }
-        console.log("Login Status: ",this.state.isLoggedIn);
+        console.log("Login Status: ",!this.state.isLoggedIn);
     }
 
     handleSignup(value){
