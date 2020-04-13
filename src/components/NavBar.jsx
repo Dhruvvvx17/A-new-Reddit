@@ -88,7 +88,7 @@ class NavBar extends Component {
 
                     <li className="nav-item">
                         <input type="button" value = {!isLoggedIn ? "Login" : "Logout"} className="btn btn-outline-danger my-2 my-sm-0 mx-sm-2"
-                        onClick={(e) => this.goToLogin()}/>
+                        onClick={(e) => this.handleLogin()}/>
                     </li>
                     <li>
                         { !isLoggedIn ? 
@@ -107,9 +107,15 @@ class NavBar extends Component {
         this.setState({query: value});
     }
 
-    goToLogin(){
-        // Login alert box
-        this.props.history.push('/Login')
+    handleLogin(){
+        // Log out
+        if(this.state.username !== ''){
+            this.props.updateLoginState('')
+        }
+        // Log in
+        else{
+            this.props.history.push('/Login')
+        }
         // console.log("Login Status: ",!this.state.isLoggedIn);
     }
 

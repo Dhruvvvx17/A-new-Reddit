@@ -27,7 +27,8 @@ class App extends Component {
 				<BrowserRouter>
 					<NavBar
 						username={this.state.username}
-						isLoggedIn={this.state.isLoggedIn}/>
+						isLoggedIn={this.state.isLoggedIn}
+						updateLoginState={this.updateLoginState}/>
 					<Switch>
 						<Route path="/" exact component={MainFeed}/>
 						<Route path="/Trending/" exact component={Trending}/>

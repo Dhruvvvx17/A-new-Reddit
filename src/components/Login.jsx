@@ -80,7 +80,7 @@ class Login extends Component {
                     // Login Failed
                     console.log(this.state.username,"Login Failed!");
                 }
-                // !!!! Remove above 8 lines
+                // !!!! Above is only for testing
 
             })
             .catch(error => {
@@ -88,6 +88,7 @@ class Login extends Component {
                 // Login Fail stau on login page
                 
                 // !!!! Below code is only for testing
+                // This will change to response.usernmae and response.password
                 if(this.state.username==="admin" && this.state.password==="admin"){
                     // Login Success
                     console.log(this.state.username,"Login Successfull!");
@@ -99,7 +100,7 @@ class Login extends Component {
                     // Login Failed
                     console.log(this.state.username,"Login Failed!");
                 }
-                // !!!! Remove above 8 lines
+                // !!!! Above is only for testing
             })
     }
 
