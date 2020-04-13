@@ -110,17 +110,17 @@ class NavBar extends Component {
     handleLogin(){
         // Log out
         if(this.state.username !== ''){
-            this.props.updateLoginState('')
+            this.props.updateLoginState('');
         }
         // Log in
         else{
-            this.props.history.push('/Login')
+            this.props.history.push('/Login');
         }
         // console.log("Login Status: ",!this.state.isLoggedIn);
     }
 
     handleSignup(value){
-        console.log(value);
+        this.props.history.push('/Signup');
     }
 
 

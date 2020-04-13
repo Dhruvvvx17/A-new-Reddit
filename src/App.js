@@ -7,6 +7,7 @@ import CreatePost from './components/CreatePost';
 import Profile from './components/Profile';
 import NotFound from './components/NotFound';
 import Login from './components/Login';
+import Signup from './components/Signup';
 
 import {BrowserRouter, Switch,Route} from 'react-router-dom';
 
@@ -39,6 +40,7 @@ class App extends Component {
 							updateLoginState={this.updateLoginState}
 							username={this.state.username}
 							isLoggedIn={this.state.isLoggedIn}/> } />
+						<Route path='/Signup/' exact component={Signup}/>
 						<Route component={NotFound}/>
 					</Switch>			
 				</BrowserRouter>
