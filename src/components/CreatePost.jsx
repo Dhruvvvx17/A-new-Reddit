@@ -34,7 +34,7 @@ class CreatePost extends Component {
                         <form style={this.form_style} onSubmit={this.submitHandler}>
                             
                             <TextField id="name-text" variant="outlined" label="Title" fullWidth 
-                            name="post_title" value={this.state.title} onChange={(e) => this.handleTitleChange(e.target.value)} />
+                            name="post_title" value={this.state.title} onChange={(e) => this.handleTitleChange(e.target.value)} required/>
                             
                             <TextField id="multiline-description-text" variant="outlined" label="Description" fullWidth multiline 
                             rowsMax="4" rows="3" name="post_description" value={this.state.description} onChange={(e) => this.handleDescriptionChange(e.target.value)} />

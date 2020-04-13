@@ -33,16 +33,16 @@ class Signup extends Component {
                     <form style={this.form_style} onSubmit={this.signUpHandler}>
                         
                         <TextField id="name-text" variant="outlined" label="Username" fullWidth 
-                        name="username" value={this.state.username} onChange={(e) => this.handleUsernameChange(e.target.value)} />
+                        name="username" value={this.state.username} onChange={(e) => this.handleUsernameChange(e.target.value)} required/>
 
                         <TextField id="email-text" variant="outlined" label="Email" fullWidth 
-                        name="email" value={this.state.email} onChange={(e) => this.handleEmailChange(e.target.value)} />
+                        name="email" value={this.state.email} onChange={(e) => this.handleEmailChange(e.target.value)} required/>
                         
                         <TextField id="bio-text" variant="outlined" label="Bio" fullWidth 
                         name="bio" value={this.state.bio} onChange={(e) => this.handleBioChange(e.target.value)} />
                         
                         <TextField id="password-text" variant="outlined" label="Password" fullWidth type="password" 
-                        name="password" value={this.state.password} onChange={(e) => this.handlePasswordChange(e.target.value)} />
+                        name="password" value={this.state.password} onChange={(e) => this.handlePasswordChange(e.target.value)} required/>
                                           
                         <div className="mt-3">
                             <button type="submit" className="btn btn-lg btn-primary">Signup</button>

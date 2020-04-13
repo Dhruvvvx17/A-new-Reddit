@@ -35,10 +35,10 @@ class Login extends Component {
                         <form style={this.form_style} onSubmit={this.loginHandler}>
                             
                             <TextField id="name-text" variant="outlined" label="Username" fullWidth 
-                            name="username" value={this.state.username} onChange={(e) => this.handleUsernameChange(e.target.value)} />
+                            name="username" value={this.state.username} onChange={(e) => this.handleUsernameChange(e.target.value)} required/>
                             
                             <TextField id="password-text" variant="outlined" label="Password" fullWidth type="password" 
-                            name="password" value={this.state.password} onChange={(e) => this.handlePasswordChange(e.target.value)} />
+                            name="password" value={this.state.password} onChange={(e) => this.handlePasswordChange(e.target.value)} required/>
                                               
                             <div className="mt-3">
                                 <button type="submit" className="btn btn-lg btn-primary">Login</button>
