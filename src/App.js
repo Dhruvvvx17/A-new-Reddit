@@ -21,8 +21,6 @@ class App extends Component {
 	
 	render() { 
 
-		console.log("__________APP RELOADED__________ with",this.state.isLoggedIn,this.state.username);
-
 		return (
 			<React.Fragment>
 				<BrowserRouter>
@@ -31,17 +29,31 @@ class App extends Component {
 						isLoggedIn={this.state.isLoggedIn}
 						updateLoginState={this.updateLoginState}/>
 					<Switch>
+
 						<Route path="/" exact component={MainFeed}/>
+
 						<Route path="/Trending/" exact component={Trending}/>
-						<Route path="/CreatePost/" exact component={CreatePost}	/>
-						<Route path="/Profile/" exact component={Profile}/>
+
+						<Route path="/CreatePost/" exact 
+							render={(props) => <CreatePost {...props}
+							username={this.state.username}
+							isLoggedIn={this.state.isLoggedIn} /> } />
+
+						<Route path="/Profile/" exact 
+							render={(props) => <Profile {...props}
+							username={this.state.username}
+							isLoggedIn={this.state.isLoggedIn} /> } />
+
 						<Route path="/Login/" exact 
 							render={(props) => <Login {...props}
 							updateLoginState={this.updateLoginState}
 							username={this.state.username}
 							isLoggedIn={this.state.isLoggedIn}/> } />
+
 						<Route path='/Signup/' exact component={Signup}/>
+
 						<Route component={NotFound}/>
+
 					</Switch>			
 				</BrowserRouter>
 			</React.Fragment>

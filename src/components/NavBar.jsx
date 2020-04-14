@@ -9,6 +9,7 @@ class NavBar extends Component {
         username: this.props.username
     };
 
+    // To reflect immediate changes in props
     componentDidUpdate(prevProps) {
         if(prevProps.username !== this.props.username) {
           this.setState({username: this.props.username});
@@ -70,9 +71,9 @@ class NavBar extends Component {
                     </li>
 
                     {/* Second Hyperlink */}
-                    <li className="nav-item">
+                    {/* <li className="nav-item">
                         <NavLink to='/Trending' className="nav-link text-warning" activeClassName="nav-link text-danger" exact>Trending</NavLink>
-                    </li>
+                    </li> */}
 
                     {/* Third Hyperlink */}
                     <li className="nav-item">

@@ -9,7 +9,10 @@ class CreatePost extends Component {
             title : "",
             description : "",
             image : "",
-            votes : 0
+            votes : 0,
+
+            isLoggedIn: this.props.isLoggedIn,
+            username: this.props.username    
     };
     
 
@@ -20,35 +23,56 @@ class CreatePost extends Component {
 
     render() { 
 
+        const isLoggedIn = this.state.isLoggedIn;
+        const username = this.state.username;
+
+        console.log("____IN PROFILE_____\nUsername:",this.props.username,"\nLogin Status:",this.props.isLoggedIn);
+
+
+
         return (
             <React.Fragment>
-                {/* Title of the create post page */}
-                <div style={this.title_style}>
-                    <h1>What are you thinking about?</h1>
-                </div>
 
-                {/* Main Container */}
-                <div style={this.container_style}>
-                    {/* Sub Container - Actual form to post*/}
+                {
+                    !isLoggedIn ? 
+                    // Show that User has not logged in
                     <div>
-                        <form style={this.form_style} onSubmit={this.submitHandler}>
-                            
-                            <TextField id="name-text" variant="outlined" label="Title" fullWidth 
-                            name="post_title" value={this.state.title} onChange={(e) => this.handleTitleChange(e.target.value)} required/>
-                            
-                            <TextField id="multiline-description-text" variant="outlined" label="Description" fullWidth multiline 
-                            rowsMax="4" rows="3" name="post_description" value={this.state.description} onChange={(e) => this.handleDescriptionChange(e.target.value)} />
-                            
-                            <Form.File id="custom-file" label="Upload an image" custom value={this.state.image} 
-                            name="post_image" onChange={(e) => this.handleImageChange(e.target.value)}/>
-                            
-                            <div className="mt-3">
-                                <button type="submit" className="btn btn-lg btn-primary">Submit</button>
-                            </div>
-                        
-                        </form>
+                    <h1 className="center-screen">
+                            Login to create a post!
+                        </h1>
                     </div>
-                </div>
+                    :
+                    // Wraper under Reactfragment to show the create post form
+                    <div>
+                        {/* Title of the create post page */}
+                        <div style={this.title_style}>
+                            <h1>What are you thinking about?</h1>
+                        </div>
+
+                        {/* Main Container */}
+                        <div style={this.container_style}>
+                            {/* Sub Container - Actual form to post*/}
+                            <div>
+                                <form style={this.form_style} onSubmit={this.submitHandler}>
+                                    
+                                    <TextField id="name-text" variant="outlined" label="Title" fullWidth 
+                                    name="post_title" value={this.state.title} onChange={(e) => this.handleTitleChange(e.target.value)} required/>
+                                    
+                                    <TextField id="multiline-description-text" variant="outlined" label="Description" fullWidth multiline 
+                                    rowsMax="4" rows="3" name="post_description" value={this.state.description} onChange={(e) => this.handleDescriptionChange(e.target.value)} />
+                                    
+                                    <Form.File id="custom-file" label="Upload an image" custom value={this.state.image} 
+                                    name="post_image" onChange={(e) => this.handleImageChange(e.target.value)}/>
+                                    
+                                    <div className="mt-3">
+                                        <button type="submit" className="btn btn-lg btn-primary">Submit</button>
+                                    </div>
+                                
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                }   
             </React.Fragment>
         );
     }
