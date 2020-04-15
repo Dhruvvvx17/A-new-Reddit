@@ -11,6 +11,7 @@ import Signup from './components/Signup';
 import CreateSubreddit from './components/CreateSubreddit';
 import SearchResults from './components/SearchResults';
 import Subreddit from './components/Subreddit';
+import ViewPost from './components/ViewPost';
 
 import {BrowserRouter, Switch,Route} from 'react-router-dom';
 
@@ -63,6 +64,8 @@ class App extends Component {
 						<Route path='/SearchResults' exact component={SearchResults}/>
 						
 						<Route path='/r/' exact component={Subreddit}/>
+						
+						<Route path='/r/post' exact component={ViewPost}/>
 
 						<Route component={NotFound}/>
 

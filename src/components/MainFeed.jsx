@@ -88,6 +88,7 @@ class MainFeed extends Component {
                             onDownvote = {this.handleDownvote}
                             followSubreddit = {this.followSubreddit}
                             goToSubreddit = {this.goToSubreddit}
+                            goToPost = {this.goToPost}
                         />
                     </main>
 
@@ -136,6 +137,14 @@ class MainFeed extends Component {
         console.log("Going to subreddit",subreddit);
         const uri = '/r?'+subreddit;
         this.props.history.push(uri,subreddit);
+    }
+
+    goToPost = currentPost => {
+        console.log("Going to post",currentPost);
+        const id = currentPost.id;
+        const sub = currentPost.subreddit;
+        const uri = '/r/post/?'+sub+'/'+id;
+        this.props.history.push(uri,currentPost);
     }
 
 }

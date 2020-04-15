@@ -30,6 +30,8 @@ class Post extends Component {
                         <div style={{fontSize:15}} onClick={ () => this.props.goToSubreddit(subreddit)}>
                             <p style={{marginTop:"5px"}}> { subreddit } </p>
                         </div>
+
+                        {/* Follow Button */}
                         <div>
                         <IconButton size = "small" color="primary" onClick={ () => this.props.followSubreddit(this.props.post)} >
                             <AddIcon/>
@@ -40,7 +42,7 @@ class Post extends Component {
                     {/* Post Title & Votes */}
                     <div style={this.title_votes_style}>
                         {/* Title */}
-                        <div style={{fontSize:25,fontWeight:"bold"}}>
+                        <div style={{fontSize:25,fontWeight:"bold"}} onClick={ () => this.props.goToPost(this.props.post)}>
                             <p> { title } </p>
                         </div>
                         {/* Votes */}
@@ -50,12 +52,12 @@ class Post extends Component {
                     </div>
 
                     {/* Post Text/Description/Caption */}
-                    <div style={{paddingInline: 10}}>                    
+                    <div style={{paddingInline: 10}} onClick={ () => this.props.goToPost(this.props.post)}>                    
                         <PostDescription desc = {description} />
                     </div>
                     
                     {/* Post image */}
-                    <div style={{display:"flex",justifyContent:"center"}}>
+                    <div style={{display:"flex",justifyContent:"center"}} onClick={ () => this.props.goToPost(this.props.post)}>
                         <img src = {image} alt="space" style={{width:"80%",height:"80%"}}/>
                     </div>
 

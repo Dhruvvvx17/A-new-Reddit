@@ -8,7 +8,7 @@ class Posts extends Component {
 
     render() { 
 
-        const {allPosts,onUpvote,onDownvote,followSubreddit,goToSubreddit} = this.props;
+        const {allPosts,onUpvote,onDownvote,followSubreddit,goToSubreddit,goToPost} = this.props;
 
         return ( 
             <div>
@@ -19,6 +19,7 @@ class Posts extends Component {
                     onDownvote = {onDownvote}
                     followSubreddit = {followSubreddit}
                     goToSubreddit = {goToSubreddit}
+                    goToPost = {goToPost}
                     />
                 ))
                 }
