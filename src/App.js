@@ -9,6 +9,7 @@ import NotFound from './components/NotFound';
 import Login from './components/Login';
 import Signup from './components/Signup';
 import CreateSubreddit from './components/CreateSubreddit';
+import SearchResults from './components/SearchResults';
 
 import {BrowserRouter, Switch,Route} from 'react-router-dom';
 
@@ -57,6 +58,8 @@ class App extends Component {
 						render={(props) => <CreateSubreddit {...props}
 						username={this.state.username}
 						isLoggedIn={this.state.isLoggedIn} /> } />
+
+						<Route path='/SearchResults' exact component={SearchResults}/>
 						
 						<Route component={NotFound}/>
 

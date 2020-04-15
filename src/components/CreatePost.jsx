@@ -34,7 +34,6 @@ class CreatePost extends Component {
     render() { 
 
         const isLoggedIn = this.state.isLoggedIn;
-        const username = this.state.username;
 
         console.log("____IN PROFILE_____\nUsername:",this.props.username,"\nLogin Status:",this.props.isLoggedIn);
 

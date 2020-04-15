@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { NavLink, withRouter } from 'react-router-dom';
-import '../styles/navLinks.css'
+import '../styles/navLinks.css';
+import logo from '../images/redditLogo.png';
 
 class NavBar extends Component {
     state = { 
@@ -29,8 +30,11 @@ class NavBar extends Component {
         return ( 
             <nav className="navbar navbar-dark bg-dark" style={{color: "#FFFFFF"}}>
 
+                
                 {/* Title */}
                 <NavLink to="/" className="navbar-brand text-warning">
+                    {/* Reddit Logo */}
+                    <img src={logo} alt="logo" style={{width:"40px",height:"40px",marginInline:"10px",backgroundColor:"transparent"}}/>
                     A New Reddit   
                 </NavLink>
              
@@ -38,7 +42,7 @@ class NavBar extends Component {
 
                     {/* Search bar and submit button as a form */}
 
-                    {/* <li>
+                    <li>
                         <form className="form-inline">
                         
                         <input className="form-control mr-sm-2" type="text"  value = {this.state.query} placeholder="Search" aria-label="Search"
@@ -46,7 +50,9 @@ class NavBar extends Component {
 
                         <input type="button" value="Search" onClick={() => this.searchQuery()} className="btn btn-outline-warning my-2 my-sm-0 mx-sm-2"/>
                         </form>
-                    </li> */}
+                    </li>
+
+                    <h3 style={{marginInline:"10px"}}>|</h3>
 
                     <li className="my-2 my-sm-0 mx-sm-2">
                         { isLoggedIn ? 
@@ -129,8 +135,10 @@ class NavBar extends Component {
         if (this.state.query !== ''){
             const sendQuery = this.state.query;
             console.log("Query to search is: ",sendQuery);
-            // Send to API with search result
-            // Logic for what to do with the search result comes here.    
+
+            // Send search query to Search results page.
+            // Call appropriate api there
+            this.props.history.push('/SearchResults',sendQuery);
         }
     }
 

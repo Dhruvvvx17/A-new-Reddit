@@ -23,30 +23,42 @@ class Login extends Component {
 
         return ( 
             <React.Fragment>
-                {/* Title of the create post page */}
-                <div style={this.title_style}>
-                    <h1>Login!</h1>
-                </div>
 
-                {/* Main Container */}
-                <div style={this.container_style}>
-                    {/* Sub Container - Actual form to post*/}
+                {
+                    this.props.isLoggedIn ?
+                    // Hide the login form
                     <div>
-                        <form style={this.form_style} onSubmit={this.loginHandler}>
-                            
-                            <TextField id="name-text" variant="outlined" label="Username" fullWidth 
-                            name="username" value={this.state.username} onChange={(e) => this.handleUsernameChange(e.target.value)} required/>
-                            
-                            <TextField id="password-text" variant="outlined" label="Password" fullWidth type="password" 
-                            name="password" value={this.state.password} onChange={(e) => this.handlePasswordChange(e.target.value)} required/>
-                                              
-                            <div className="mt-3">
-                                <button type="submit" className="btn btn-lg btn-primary">Login</button>
-                            </div>
-                        
-                        </form>
+                        {/* Skip login page go directly to main feed */}
+                        {this.props.history.push('/')}
                     </div>
-                </div>
+                    :
+                    <div>
+                        {/* Title of the create post page */}
+                        <div style={this.title_style}>
+                            <h1>Login!</h1>
+                        </div>
+
+                        {/* Main Container */}
+                        <div style={this.container_style}>
+                            {/* Sub Container - Actual form to post*/}
+                            <div>
+                                <form style={this.form_style} onSubmit={this.loginHandler}>
+                                    
+                                    <TextField id="name-text" variant="outlined" label="Username" fullWidth 
+                                    name="username" value={this.state.username} onChange={(e) => this.handleUsernameChange(e.target.value)} required/>
+                                    
+                                    <TextField id="password-text" variant="outlined" label="Password" fullWidth type="password" 
+                                    name="password" value={this.state.password} onChange={(e) => this.handlePasswordChange(e.target.value)} required/>
+                                                    
+                                    <div className="mt-3">
+                                        <button type="submit" className="btn btn-lg btn-primary">Login</button>
+                                    </div>
+                                
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                }
             </React.Fragment>
         );
     }
