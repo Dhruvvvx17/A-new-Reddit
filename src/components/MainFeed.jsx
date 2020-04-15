@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Posts from './Posts'
 import SubredditLVElement from './SubredditLVElement';
 import axios from 'axios';
+import { withRouter } from 'react-router-dom';
+
 
 // MainFeed module contains <Posts>. Each post in posts is loaded further from the <Post> module.
 class MainFeed extends Component {
@@ -53,10 +55,10 @@ class MainFeed extends Component {
         ],
 
         listOfSubreddits: [
-            {id:1,name:"r/hello"},
-            {id:2,name:"r/world"},
-            {id:3,name:"r/reactJS"},
-            {id:4,name:"r/Javascript"},
+            {id:1,name:"hello"},
+            {id:2,name:"world"},
+            {id:3,name:"reactJS"},
+            {id:4,name:"Javascript"},
         ]
 
     };
@@ -71,6 +73,7 @@ class MainFeed extends Component {
                         {
                             this.state.listOfSubreddits.map(subreddit => (
                                 <SubredditLVElement key={subreddit.id}
+                                goToSubreddit = {this.goToSubreddit}
                                 name = {subreddit.name}
                                 />
                             ))
@@ -116,6 +119,12 @@ class MainFeed extends Component {
         //Send updated value after downvote to DB
     }
 
+    goToSubreddit = subreddit => {
+        console.log("Going to subreddit",subreddit);
+        const uri = '/r?'+subreddit;
+        this.props.history.push(uri,subreddit);
+    }
+
 }
  
-export default MainFeed;
+export default withRouter(MainFeed);

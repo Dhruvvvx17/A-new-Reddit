@@ -10,9 +10,9 @@ class SubredditLVElement extends Component {
         return (
             
             // Single subreddit name conatiner
-            <div style={this.container_style}>
+            <div style={this.container_style} onClick={ () => this.props.goToSubreddit(this.props.name)} >
                 {/* Name */}
-                <span style={{textAlign:"center"}}><h3>{this.props.name}</h3></span>
+                <span style={{textAlign:"center"}}><h3>r/{this.props.name}</h3></span>
             </div>
 
         );
