@@ -10,6 +10,8 @@ class Profile extends Component {
     // Fetch entire Feed from API here
     // Called immediately after a component is mounted. Setting state here will trigger re-rendering.
     componentDidMount(){
+
+        // Get User's posts
         axios.get("https://my-json-server.typicode.com/typicode/demo/posts",{crossdomain: true})  //Replace with appropriate API URL
             .then(response => {
                 console.log(response);
@@ -20,6 +22,18 @@ class Profile extends Component {
                 // Error recovery logic
                 console.log(error);
             })
+
+        // Get User's profile information
+        axios.get("https://my-json-server.typicode.com/typicode/demo/posts",{crossdomain: true})  //Replace with appropriate API URL
+        .then(response => {
+            console.log(response);
+            // Set this.state.userProfile to the response.
+            // this.state.userProfile = response IN DICT FORMAT like the example of userProfile
+        })
+        .catch(error => {
+            // Error recovery logic
+            console.log(error);
+        })
     }
 
 
@@ -42,7 +56,11 @@ class Profile extends Component {
             
             {id: 3,title:"Mountains",description:"A mountain is a large landform that rises above the surrounding land in a limited area, usually in the form of a peak. A mountain is generally steeper than a hill.",
              image: "../images/test_image3.jpg", votes: 55} 
-        ]
+        ],
+
+        userProfile : {username:"admin", profilePic:"temp1.jpg", karma:"1050",
+        bio:"Let's just predtend this is a really clever bio!Let's just predtend this is a really clever bio!Let's just predtend this is a really clever bio!Let's just predtend this is a really clever bio!Let's just predtend this is a really clever bio!Let's just predtend this is a really clever bio!Let's just predtend this is a really clever bio!Let's just predtend this is a really clever bio!Let's just predtend this is a really clever bio!Let's just predtend this is a really clever bio!Let's just predtend this is a really clever bio!"}
+
     }
 
     // To reflect immediate changes in props
@@ -86,21 +104,21 @@ class Profile extends Component {
                             {/* Name */}
                             <div style={{width:"210px",margin:"10px"}}>
                                 <h2 style={{textAlign:"center"}}>
-                                    {username}
+                                    {this.state.userProfile.username}
                                 </h2>
                             </div>
                             {/* Karma */}
                             <div style={{width:"210px",margin:"10px"}}>
                                 <h4 style={{textAlign:"center"}}>
                                     {/* Put actual Karma points here */}
-                                    Karma: 1050
+                                    Karma: {this.state.userProfile.karma}
                                 </h4>
                             </div>
                             {/* Bio */}
                             <div style={{marginInline:"10px",width:"500px",height:"auto",minHeight:"100px"}}>
                                 <p style={{textAlign:"center",margin:"5px",padding:"5px"}}>
                                     {/* Put actual Bio here */}
-                                    Let's just predtend this is a really clever bio!Let's just predtend this is a really clever bio!Let's just predtend this is a really clever bio!Let's just predtend this is a really clever bio!Let's just predtend this is a really clever bio!Let's just predtend this is a really clever bio!Let's just predtend this is a really clever bio!Let's just predtend this is a really clever bio!Let's just predtend this is a really clever bio!Let's just predtend this is a really clever bio!Let's just predtend this is a really clever bio!
+                                    {this.state.userProfile.bio}
                                 </p>
                             </div>
                         </div>
