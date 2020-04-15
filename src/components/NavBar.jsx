@@ -71,13 +71,13 @@ class NavBar extends Component {
                     </li>
 
                     {/* Second Hyperlink */}
-                    {/* <li className="nav-item">
-                        <NavLink to='/Trending' className="nav-link text-warning" activeClassName="nav-link text-danger" exact>Trending</NavLink>
-                    </li> */}
+                    <li className="nav-item">
+                        <NavLink to='/CreatePost' className="nav-link text-warning" activeClassName="nav-link text-danger" exact>Create Post</NavLink>
+                    </li>
 
                     {/* Third Hyperlink */}
                     <li className="nav-item">
-                        <NavLink to='/CreatePost' className="nav-link text-warning" activeClassName="nav-link text-danger" exact>Create Post</NavLink>
+                        <NavLink to='/CreateSubreddit' className="nav-link text-warning" activeClassName="nav-link text-danger" exact>Create Subreddit</NavLink>
                     </li>
 
                     {/* Fourth Hyperlink */}
