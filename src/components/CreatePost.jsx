@@ -15,6 +15,16 @@ class CreatePost extends Component {
             username: this.props.username    
     };
     
+    // To reflect immediate changes in props
+    componentDidUpdate(prevProps) {
+        if(prevProps.username !== this.props.username) {
+            this.setState({username: this.props.username});
+        }
+        if(prevProps.isLoggedIn !== this.props.isLoggedIn) {
+            this.setState({isLoggedIn: this.props.isLoggedIn});
+        }
+    }
+
 
     container_style = {display:"flex",alignItems:"center", flexDirection:"column", padding:5}
     title_style = {display:"flex", justifyContent:"center" }
