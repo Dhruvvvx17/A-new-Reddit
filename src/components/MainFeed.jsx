@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Posts from './Posts'
+import SubredditLVElement from './SubredditLVElement';
 import axios from 'axios';
 
 // MainFeed module contains <Posts>. Each post in posts is loaded further from the <Post> module.
@@ -8,6 +9,7 @@ class MainFeed extends Component {
     // Fetch entire Feed from API here
     // Called immediately after a component is mounted. Setting state here will trigger re-rendering.
     componentDidMount(){
+        // Fetch user feed
         axios.get("https://my-json-server.typicode.com/typicode/demo/posts",{crossdomain: true})  //Replace with appropriate API URL
             .then(response => {
                 console.log(response);
@@ -18,6 +20,18 @@ class MainFeed extends Component {
                 // Error recovery logic
                 console.log(error);
             })
+
+        // Fetch list of subreddits
+        axios.get("https://my-json-server.typicode.com/typicode/demo/posts",{crossdomain: true})  //Replace with appropriate API URL
+        .then(response => {
+            console.log(response);
+            // Set this.state.listOfSubreddits to the response.
+            // this.state.listOfSubreddits = response IN LIST FORMAT like the example of listOfSubreddits
+        })
+        .catch(error => {
+            // Error recovery logic
+            console.log(error);
+        })
     }
 
 
@@ -36,19 +50,44 @@ class MainFeed extends Component {
             
             {id: 3,title:"Mountains",description:"A mountain is a large landform that rises above the surrounding land in a limited area, usually in the form of a peak. A mountain is generally steeper than a hill.",
              image: "../images/test_image3.jpg", votes: 55} 
+        ],
+
+        listOfSubreddits: [
+            {id:1,name:"r/hello"},
+            {id:2,name:"r/world"},
+            {id:3,name:"r/reactJS"},
+            {id:4,name:"r/Javascript"},
         ]
+
     };
 
     render() { 
         return ( 
-            <React.Fragment>
-				<main style={{display:"flex",alignItems:"center", flexDirection:"column", padding:5}}>
-                    <Posts 
-                        allPosts = {this.state.allPosts}
-                        onUpvote = {this.handleUpvote}
-                        onDownvote = {this.handleDownvote}
-                    />
-				</main>
+            <React.Fragment> 
+                
+                <div style={{minheight:"100vh",width:"100%",display:"flex",justifyContent:"space-between"}}>
+				
+                    <div style={{display:"flex",alignItems:"center", flexDirection:"column", padding:5,width:"300",border:"1px solid black"}}>
+                        {
+                            this.state.listOfSubreddits.map(subreddit => (
+                                <SubredditLVElement key={subreddit.id}
+                                name = {subreddit.name}
+                                />
+                            ))
+                        }
+                    </div>
+
+                    <main style={{flexGrow:"1",display:"flex",alignItems:"center", flexDirection:"column", padding:5}}>
+                        {/* Center division for posts */}
+                        <Posts 
+                            allPosts = {this.state.allPosts}
+                            onUpvote = {this.handleUpvote}
+                            onDownvote = {this.handleDownvote}
+                        />
+                    </main>
+
+                </div>
+
 			</React.Fragment>
         );
     }
