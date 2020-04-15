@@ -91,13 +91,14 @@ class SearchResults extends Component {
                     </div>
                     <div style={{margin:"20px",marginTop:"30px"}}>
                         <span><h3>Subreddits</h3></span>
-                        {/* List of Rides */}
+                        {/* List of Subreddits */}
                         <div style={{display:"flex",height:"auto",minheight:"200px",flexWrap:"wrap",justifyContent:"left"}}>
 
                             {searchResults_subreddits.map(subreddit => (
                                 <SubredditElement key={subreddit.id}
-                                    subreddit = {subreddit}
-                                    />
+                                subreddit = {subreddit}
+                                goToSubreddit = {this.goToSubreddit}
+                                />
                                ))
                             }
                         </div>
@@ -105,6 +106,12 @@ class SearchResults extends Component {
                 </div>
             </React.Fragment>
         );
+    }
+
+    goToSubreddit = subreddit => {
+        console.log("Going to subreddit",subreddit);
+        const uri = '/r?'+subreddit;
+        this.props.history.push(uri,subreddit);
     }
 
 }

@@ -13,7 +13,7 @@ class SubredditElement extends Component {
 
         return (
             // Single User conatiner
-            <div style={this.container_style}>
+            <div style={this.container_style} onClick={ () => this.props.goToSubreddit(subredditName)}>
                 {/* Image */}
                 <div style={{width:"42px",height:"42px",margin:"10px"}}>
                     <img src={SubredditDP} style={{width:"40px",height:"40px"}} alt="dp"/>
