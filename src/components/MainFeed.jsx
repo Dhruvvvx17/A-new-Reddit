@@ -44,14 +44,14 @@ class MainFeed extends Component {
             // Format - id, title, description, image, votes.
             // Post 1
             {id: 1,title:"Space",description:"A galaxy is a gravitationally bound system of stars, stellar remnants, interstellar gas, dust, and dark matter. The word galaxy is derived from the Greek galaxias, literally 'milky', a reference to the Milky Way.",
-             image: "../images/test_image1.jpg", votes: 15},
+             image: "../images/test_image1.jpg", votes: 15, subreddit: "r/space"},
             
             // Post 2 
             {id: 2,title:"Forest",description:"A forest is a large area dominated by trees. Hundreds of more precise definitions of forest are used throughout the world, incorporating factors such as tree density, tree height, land use, legal standing and ecological function.",
-             image: "../images/test_image2.jpg", votes: 34},
+             image: "../images/test_image2.jpg", votes: 34, subreddit: "r/nature"},
             
             {id: 3,title:"Mountains",description:"A mountain is a large landform that rises above the surrounding land in a limited area, usually in the form of a peak. A mountain is generally steeper than a hill.",
-             image: "../images/test_image3.jpg", votes: 55} 
+             image: "../images/test_image3.jpg", votes: 55, subreddit: "r/nature"} 
         ],
 
         listOfSubreddits: [
@@ -86,6 +86,8 @@ class MainFeed extends Component {
                             allPosts = {this.state.allPosts}
                             onUpvote = {this.handleUpvote}
                             onDownvote = {this.handleDownvote}
+                            followSubreddit = {this.followSubreddit}
+                            goToSubreddit = {this.goToSubreddit}
                         />
                     </main>
 
@@ -104,7 +106,7 @@ class MainFeed extends Component {
         console.log("Updated votes: ",allPosts[index].votes);
         this.setState({ allPosts });
 
-        //Send updated value after upvote to DB
+        //Send updated value after upvote to DB using axios post
     }
 
     handleDownvote = currentPost => {
@@ -116,7 +118,18 @@ class MainFeed extends Component {
         console.log("Updated votes: ",allPosts[index].votes);
         this.setState({ allPosts })
 
-        //Send updated value after downvote to DB
+        //Send updated value after downvote to DB using axios post
+    }
+
+    followSubreddit = currentPost => {
+        console.log("Current Post: ",currentPost);
+        const allPosts = [...this.state.allPosts];
+        const index = allPosts.indexOf(currentPost);
+        allPosts[index] = {...currentPost};
+        const subredditToFollow = allPosts[index].subreddit;
+        console.log("User is following subreddit: ",subredditToFollow);
+
+        // send "subredditToFollow" to DB add it to list of subreddits user follows using axios post.
     }
 
     goToSubreddit = subreddit => {

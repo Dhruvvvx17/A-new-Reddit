@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { IconButton } from '@material-ui/core'
 import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
+import AddIcon from '@material-ui/icons/Add';
 import PostDescription from './PostDescription'
 import '../styles/post.css'
 // Every post is assembled here. Called using the map function repetedly for every post that is to be displayed.
@@ -12,10 +13,11 @@ class Post extends Component {
     container_style = {border: "1px solid black",width:400,height:"auto",margin:5,minHeight:400};
     title_votes_style = {paddingInline: 10,display:"flex",flexDirection:"row",justifyContent:"space-between"}
     vote_btn_style = {marginInline:10,marginTop:5,marginBottom:5}
+    subreddit_name_style = {paddingInline: 10,display:"flex",flexDirection:"row",justifyContent:"space-between",marginTop:"5px"}
 
     render() { 
 
-        const {id,title,description,image,votes} = this.props.post;
+        const {id,title,description,image,votes,subreddit} = this.props.post;
 
         console.log(id);    //postID
 
@@ -23,6 +25,18 @@ class Post extends Component {
                 // Single post container
                 <div style={this.container_style}>
                     
+                    <div style={this.subreddit_name_style}>
+                        {/* Subreddit Name */}
+                        <div style={{fontSize:15}} onClick={ () => this.props.goToSubreddit(subreddit)}>
+                            <p style={{marginTop:"5px"}}> { subreddit } </p>
+                        </div>
+                        <div>
+                        <IconButton size = "small" color="primary" onClick={ () => this.props.followSubreddit(this.props.post)} >
+                            <AddIcon/>
+                        </IconButton>
+                        </div>
+                    </div>
+
                     {/* Post Title & Votes */}
                     <div style={this.title_votes_style}>
                         {/* Title */}
