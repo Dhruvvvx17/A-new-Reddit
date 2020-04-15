@@ -10,6 +10,7 @@ class CreatePost extends Component {
             description : "",
             image : "",
             votes : 0,
+            subreddit: "",
 
             isLoggedIn: this.props.isLoggedIn,
             username: this.props.username    
@@ -70,6 +71,9 @@ class CreatePost extends Component {
                                     <TextField id="multiline-description-text" variant="outlined" label="Description" fullWidth multiline 
                                     rowsMax="4" rows="3" name="post_description" value={this.state.description} onChange={(e) => this.handleDescriptionChange(e.target.value)} />
                                     
+                                    <TextField id="subreddit-text" variant="outlined" label="Subreddit" fullWidth 
+                                    name="post_subreddit" value={this.state.subreddit} onChange={(e) => this.handleSubredditChange(e.target.value)} required/>
+
                                     <Form.File id="custom-file" label="Upload an image" custom value={this.state.image} 
                                     name="post_image" onChange={(e) => this.handleImageChange(e.target.value)}/>
                                     
@@ -96,6 +100,10 @@ class CreatePost extends Component {
 
     handleImageChange(value){
         this.setState({image: value})
+    }
+
+    handleSubredditChange(value){
+        this.setState({subreddit: value})
     }
 
     // Submit handler send the form data as a json to the appropriate API.

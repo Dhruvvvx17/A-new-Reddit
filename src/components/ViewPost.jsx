@@ -9,29 +9,10 @@ import PostDescription from './PostDescription'
 
 class ViewPost extends Component {
 
-    // Fetch the post to view here
-    // Called immediately after a component is mounted. Setting state here will trigger re-rendering.
-    componentDidMount(){
-        // Fetch user feed
-        axios.get("https://my-json-server.typicode.com/typicode/demo/posts",{crossdomain: true})  //Replace with appropriate API URL
-            .then(response => {
-                console.log(response);
-                // Set this.state.post to the response.
-                // this.state.posts = response IN DICT FORMAT like the example of post
-            })
-            .catch(error => {
-                // Error recovery logic
-                console.log(error);
-            })
-    }
 
     state = { 
+        // The post data is send from the onclick in main feed
         post: this.props.location.state
-            // // post refers to a dict which should be the response from the API returning the post to view in the format below.
-            // // Format - id, title, description, image, votes, subreddit.
-            // // Post
-            // {id: 1,title:"Space",description:"A galaxy is a gravitationally bound system of stars, stellar remnants, interstellar gas, dust, and dark matter. The word galaxy is derived from the Greek galaxias, literally 'milky', a reference to the Milky Way.",
-            //  image: "../images/test_image1.jpg", votes: 15, subreddit: "r/space"}
     }
 
     container_style = {border: "1px solid black",width:600,height:"auto",margin:5,minHeight:600};
