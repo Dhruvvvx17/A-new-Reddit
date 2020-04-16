@@ -9,8 +9,12 @@ class Explore extends Component {
     // Fetch entire recommendation Feed from API here
     // Called immediately after a component is mounted. Setting state here will trigger re-rendering.
     componentDidMount(){
-        // Fetch recommendation feed
-        axios.get("https://my-json-server.typicode.com/typicode/demo/posts",{crossdomain: true})  //Replace with appropriate API URL
+        console.log("IN EXPLORE: ",this.props.isLoggedIn);
+        // User has logged in:
+        if(this.props.isLoggedIn)
+        {
+            // Fetch recommendation feed
+            axios.get("https://my-json-server.typicode.com/typicode/demo/posts",{crossdomain: true})  //Replace with appropriate API URL
             .then(response => {
                 console.log(response);
                 // Set this.state.allPosts to the response.
@@ -21,17 +25,44 @@ class Explore extends Component {
                 console.log(error);
             })
 
-        // Fetch list of subreddits to recommend
-        axios.get("https://my-json-server.typicode.com/typicode/demo/posts",{crossdomain: true})  //Replace with appropriate API URL
-        .then(response => {
-            console.log(response);
-            // Set this.state.listOfSubreddits to the response.
-            // this.state.listOfSubreddits = response IN LIST FORMAT like the example of listOfSubreddits
-        })
-        .catch(error => {
-            // Error recovery logic
-            console.log(error);
-        })
+            // Fetch list of subreddits to recommend
+            axios.get("https://my-json-server.typicode.com/typicode/demo/posts",{crossdomain: true})  //Replace with appropriate API URL
+            .then(response => {
+                console.log(response);
+                // Set this.state.listOfSubreddits to the response.
+                // this.state.listOfSubreddits = response IN LIST FORMAT like the example of listOfSubreddits
+            })
+            .catch(error => {
+                // Error recovery logic
+                console.log(error);
+            })
+        }
+        // User has not logged IN
+        else{
+            // Fetch recommendation feed
+            axios.get("https://my-json-server.typicode.com/typicode/demo/posts",{crossdomain: true})  //Replace with appropriate API URL
+            .then(response => {
+                console.log(response);
+                // Set this.state.allPosts to the response.
+                // this.state.allPosts = response IN LIST FORMAT like the example of allPosts
+            })
+            .catch(error => {
+                // Error recovery logic
+                console.log(error);
+            })
+
+            // Fetch list of subreddits to recommend
+            axios.get("https://my-json-server.typicode.com/typicode/demo/posts",{crossdomain: true})  //Replace with appropriate API URL
+            .then(response => {
+                console.log(response);
+                // Set this.state.listOfSubreddits to the response.
+                // this.state.listOfSubreddits = response IN LIST FORMAT like the example of listOfSubreddits
+            })
+            .catch(error => {
+                // Error recovery logic
+                console.log(error);
+            })
+        }
     }
 
 

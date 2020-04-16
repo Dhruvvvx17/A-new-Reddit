@@ -68,7 +68,10 @@ class App extends Component {
 						
 						<Route path='/r/post' exact component={ViewPost}/>
 
-						<Route path='/Explore' exact component={Explore}/>
+						<Route path='/Explore' exact 
+						render={(props) => <Explore {...props} 
+						username={this.state.username}
+						isLoggedIn={this.state.isLoggedIn} /> } />
 
 						<Route component={NotFound}/>
 
