@@ -91,6 +91,11 @@ class NavBar extends Component {
                         <NavLink to='/Profile' className="nav-link text-warning" activeClassName="nav-link text-danger" exact>Profile</NavLink>
                     </li>
 
+                    {/* Fifth Hyperlink */}
+                    <li className="nav-item">
+                        <NavLink to='/Explore' className="nav-link text-warning" activeClassName="nav-link text-danger" exact>Explore</NavLink>
+                    </li>
+
                     <div><h3>|</h3></div>
 
                     <li className="nav-item">
