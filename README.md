@@ -35,20 +35,3 @@ localhost:3000/Profile for profile
 
 
 ---
-
-
-Tasks pending in front end:
-
-* Component to show a single post (Need to redirect to this once a new post is uploaded or existing post is clicked from main feed)
-
-* Signup and login form
-
-* Updating the main feed without refreshing the page
-
-* Post comments (not done)
-
-* Image sent as prop from mainfeed.jsx does not load in post.jsx (Possible solution is webpack?)
-
-* Pages for trending and profile
-
-* The intelligent feature of the project (Suggesting similar posts what a user would like)
