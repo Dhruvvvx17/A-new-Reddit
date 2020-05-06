@@ -1,4 +1,4 @@
-# MicroBlogging (A-new-Reddit)
+# A-new-Reddit
 
 ## Frontend using React, Material UI and Bootstrap.
 
