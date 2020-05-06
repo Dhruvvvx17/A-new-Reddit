@@ -4,7 +4,7 @@
 
 Create a project using command:
 
-    - npx create-react-app <app name>
+    npx create-react-app <app name>
 
 Cd into the project directory
 
@@ -23,7 +23,8 @@ Install the following dependencies using "npm install ":
 
 Copy paste the src and public folders of this repo in the react project directory
 
-npm-start to deploy
+    npm-start to deploy
+
 
 localhost:3000 for mainfeed
 
